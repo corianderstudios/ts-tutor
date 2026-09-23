@@ -134,7 +134,7 @@ Coverage includes: sidebar search/filtering and active-state, the homepage's top
 Navigate through the sidebar to select a TypeScript topic. Each topic page includes:
 
 - **Description:** An overview of the TypeScript concept.
-- **Examples:** Demonstrations of the concept in action, with a
+- **Examples:** Demonstrations of the concept in action, with a playground to test
 
 ---
 
