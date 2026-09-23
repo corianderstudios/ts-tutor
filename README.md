@@ -1,75 +1,141 @@
-# Learn TypeScript — React App
+# ts-tutor 🚀
 
-A multi-file React (Vite) version of the interactive TypeScript tutorial: sidebar
-navigation with search, a homepage, per-topic examples with copy buttons, a live
-TypeScript playground, quizzes with progress tracking, and light/dark mode.
+A multi-file React (Vite) version of the interactive TypeScript tutorial. This project features a sidebar with search and completion tracking, a homepage, per-topic examples with copy buttons, a live TypeScript playground, quizzes with progress tracking, and light/dark mode.
 
-## Project structure
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)]()
+[![Vite Version](https://img.shields.io/badge/Vite-5.2.0-purple.svg)]()
+[![TypeScript Version](https://img.shields.io/badge/TypeScript-N%2FA-3f74c0.svg?logo=typescript&logoColor=3f74c0)]()
+
+## 🔮 Development Process
+
+This repository was **vibe coded** utilizing AI agents under human supervision.
+
+- **Primary Driver:** `Claude Code`
+- **Human Vibe Level:** _Collaborative Vibe_ (AI generated the heavy lifting, human reviewed architectures and edge cases).
+
+## Table of Contents 📜
+
+- [About the Project](#about-the-project)
+- [Features](#features-✨)
+- [Tech Stack](#tech-stack-🛠️)
+- [Project Structure](#project-structure-📁)
+- [Running the Project](#running-the-project-▶️)
+- [Testing](#testing-🧪)
+- [Contributing](#contributing-🤝)
+- [License](#license-📜)
+- [Important Links](#important-links-🔗)
+
+## About the Project 📖
+
+`ts-tutor` is an interactive learning platform designed to help users master TypeScript through a hands-on approach. It leverages React and Vite to provide a dynamic and responsive user experience. The application breaks down TypeScript concepts into digestible topics, each with explanations, code examples, and interactive elements like a live playground and quizzes.
+
+## Features ✨
+
+- **Interactive TypeScript Learning:** Go through a curated list of TypeScript topics with clear explanations and practical examples.
+- **Live TypeScript Playground:** Experiment with TypeScript code directly in the browser and see the output.
+- **Topic-Specific Examples:** Each topic includes code snippets that can be easily copied.
+- **Quizzes & Progress Tracking:** Test your understanding with quizzes for each topic and track your learning progress.
+- **Searchable Navigation:** Quickly find topics using the integrated search functionality within the sidebar.
+- **Light & Dark Mode:** Customize the application's appearance with a choice of light and dark themes.
+- **Code Highlighting:** Enjoy a basic code syntax highlighting for better readability.
+- **Responsive Design:** Adapts to various screen sizes for a seamless experience on both desktop and mobile.
+
+## Tech Stack 🛠️
+
+- **Frontend Framework:** React
+- **Build Tool:** Vite
+- **Language:** JavaScript (with TypeScript concepts demonstrated)
+- **Styling:** CSS
+- **Testing:** Vitest, React Testing Library, Jest-dom
+
+## Project Structure 📁
 
 ```
-index.html                  Vite entry HTML (loads the TypeScript compiler for the playground)
-src/
-  main.jsx                  React root
-  App.jsx                   Top-level layout, routing between Home/topics, theme & progress state
-  styles.css                All styles (CSS variables drive light/dark theming)
-  setupTests.js              Vitest + jest-dom setup
-  data/
-    topics.js               Topic content: titles, descriptions, code examples
-    starters.js              Starter code for the playground, per topic
-    quizzes.js               Quiz questions, per topic
-  components/
-    Sidebar.jsx              Collapsible/hamburger nav with search + completion checkmarks
-    Home.jsx                 Landing page with version info and topic grid
-    ExampleBlock.jsx          A single code example with a "Copy" button
-    Highlighted.jsx           Lightweight code syntax highlighting
-    Playground.jsx           The live TypeScript editor + runner
-    QuizSection.jsx           Per-topic quiz questions and completion tracking
-    __tests__/               Component tests
-  __tests__/
-    App.test.jsx             Top-level integration tests
+ ts-tutor/
+ 	├── public/
+ 	├── src/
+ 	│   ├── components/
+ 	│   │   ├── __tests__/
+ 	│   │   ├── ExampleBlock.jsx
+ 	│   │   ├── Highlighted.jsx
+ 	│   │   ├── Home.jsx
+ 	│   │   ├── Playground.jsx
+ 	│   │   └── QuizSection.jsx
+ 	│   │   └── Sidebar.jsx
+ 	│   ├── data/
+ 	│   │   ├── quizzes.js
+ 	│   │   ├── starters.js
+ 	│   │   └── topics.js
+ 	│   ├── __tests__/
+ 	│   ├── App.jsx
+ 	│   ├── main.jsx
+ 	│   ├── setupTests.js
+ 	│   └── styles.css
+ 	├── index.html
+ 	├── package.json
+ 	├── README.md
+ 	└── vite.config.js
 ```
 
-## Running it
+## Running the Project ▶️
 
-```
-npm install
-npm run dev
-```
+1. **Clone the repository:**
 
-Then open the URL Vite prints (usually http://localhost:5173).
+   ```bash
+   git clone https://github.com/corianderstudios/ts-tutor.git
+   cd ts-tutor
+   ```
 
-To build a static production bundle:
+2. **Install dependencies:**
 
-```
-npm run build
-npm run preview
-```
+   ```bash
+   npm install
+   ```
 
-## Testing
+3. **Start the development server:**
 
-Tests use [Vitest](https://vitest.dev) and [React Testing Library](https://testing-library.com/react).
+   ```bash
+   npm run dev
+   ```
 
-```
-npm test          # run once
-npm run test:watch  # watch mode
-```
+   Open your browser and navigate to the URL provided by Vite (usually `http://localhost:5173`).
 
-Coverage includes: sidebar search/filtering and active-state, the homepage's
-topic grid, per-topic quizzes (answering, feedback, and the completion
-callback), the playground (editor value, running code, error display, and
-per-topic localStorage persistence), the copy-to-clipboard button, and a few
-top-level App integration tests (navigation and theme toggling).
+4. **Build for production:**
 
-The Playground's tests stub `window.ts` (normally provided by the CDN script
-in `index.html`) since the real TypeScript compiler isn't loaded in the jsdom
-test environment.
+   ```bash
+   npm run build
+   ```
 
-## Notes
+5. **Preview the production build:**
+   ```bash
+   npm run preview
+   ```
 
-- Components are written in JSX (converted from an earlier `React.createElement`
-  version).
-- The TypeScript compiler used by the Playground is loaded via a `<script>` tag
-  in `index.html` (from cdnjs) rather than bundled as an npm dependency, since
-  the browser build of `typescript` is large and doesn't need bundling.
-- Theme, quiz progress, and playground code are all persisted to the browser's
-  `localStorage`, same as before.
+## Testing 🧪
+
+This project uses Vitest for testing.
+
+- **Run all tests once:**
+
+  ```bash
+  npm test
+  ```
+
+- **Run tests in watch mode:**
+  ```bash
+  npm run test:watch
+  ```
+
+Coverage includes: sidebar search/filtering and active-state, the homepage's topic grid, per-topic quizzes (answering, feedback, and the completion callback), the playground (editor value, running code, error display, and per-topic localStorage persistence), the copy-to-clipboard button, and a few top-level App integration tests (navigation and theme toggling).
+
+## How to Use 💡
+
+Navigate through the sidebar to select a TypeScript topic. Each topic page includes:
+
+- **Description:** An overview of the TypeScript concept.
+- **Examples:** Demonstrations of the concept in action, with a
+
+---
+
+**<p align="center">Generated by [ReadmeCodeGen](https://www.readmecodegen.com/)</p>**
