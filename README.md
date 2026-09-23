@@ -1,4 +1,4 @@
-# TypeScript tutor 🚀
+# [TypeScript tutor] (https://corianderstudios.github.io/ts-tutor/)🚀
 
 A multi-file React (Vite) version of the interactive TypeScript tutorial. This project features a sidebar with search and completion tracking, a homepage, per-topic examples with copy buttons, a live TypeScript playground, quizzes with progress tracking, and light/dark mode.
 
